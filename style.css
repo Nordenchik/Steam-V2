@@ -6,10 +6,38 @@ body {
 }
 
 .menu {
-    background: #171d25;
+    background: #001f3f; 
     background-position: center top;
     min-width: 940px;
     font-family: "Motiva Sans", Sans-serif;
     font-weight: normal;
     font-size: 14px;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-toggler {
+    border-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
+.btn-outline-success {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-success:hover {
+    background-color: #ffffff;
+    color: #011635;
+}
+
+/* Додано стилі для логотипу */
+.menu img {
+    height: 40px;
+    margin-right: 10px;
 }
