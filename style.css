@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #1b2838;
 }
 
 .menu {
@@ -58,4 +58,8 @@ body {
 .btn-outline-success:hover {
     background-color: #ffffff;
     color: #001f3f;
+}
+
+.italic-text {
+    font-style: italic;
 }
