@@ -4,3 +4,12 @@ body {
     padding: 0;
     background-color: #fff;
 }
+
+.menu {
+    background: #171d25;
+    background-position: center top;
+    min-width: 940px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
