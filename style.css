@@ -1,21 +1,45 @@
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #f8f9fa;
 }
 
 .menu {
-    background: #001f3f; 
     background-position: center top;
     min-width: 940px;
-    font-family: "Motiva Sans", Sans-serif;
+    font-family: "Motiva Sans", sans-serif;
     font-weight: normal;
     font-size: 14px;
 }
+.bg-primary {
+    background-color: #001f3f !important;
+}
 
-.navbar-brand, .nav-link {
-    color: #ffffff !important;
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #c7c7c7;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+
+.nav-link:hover {
+    color: #ffffff;
 }
 
 .navbar-toggler {
@@ -33,11 +57,5 @@ body {
 
 .btn-outline-success:hover {
     background-color: #ffffff;
-    color: #011635;
-}
-
-/* Додано стилі для логотипу */
-.menu img {
-    height: 40px;
-    margin-right: 10px;
+    color: #001f3f;
 }
