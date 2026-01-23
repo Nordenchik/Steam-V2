@@ -63,3 +63,8 @@ body {
 .italic-text {
     font-style: italic;
 }
+
+#carouselExampleCaptions {
+    max-width: 800px;
+    margin: 20px auto;
+}
