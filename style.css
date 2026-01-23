@@ -20,7 +20,7 @@ body {
 .navbar-brand {
     display: flex;
     align-items: center;
-    color: #ffffff;
+    color: #fff;
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
@@ -39,24 +39,24 @@ body {
 }
 
 .nav-link:hover {
-    color: #ffffff;
+    color: #fff;
 }
 
 .navbar-toggler {
-    border-color: #ffffff;
+    border-color: #fff;
 }
 
 .navbar-toggler-icon {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .btn-outline-success {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: #fff;
+    border-color: #fff;
 }
 
 .btn-outline-success:hover {
-    background-color: #ffffff;
+    background-color: #fff;
     color: #001f3f;
 }
 
@@ -64,7 +64,8 @@ body {
     font-style: italic;
 }
 
-#carouselExampleCaptions {
+.container {
     max-width: 800px;
     margin: 20px auto;
+    margin-bottom: 75px;
 }
