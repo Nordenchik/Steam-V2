@@ -82,3 +82,29 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px;
 }
+
+/* це градієнти кнопок */
+.category-button.gradient-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-button.gradient-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 255, 0.5));
+    z-index: 1;
+}
+
+.category-button.gradient-overlay span {
+    position: relative;
+    z-index: 2;
+}
+
+.category-button.gradient-overlay:hover::before {
+    background: none;
+}
