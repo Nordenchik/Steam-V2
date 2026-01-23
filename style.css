@@ -69,3 +69,16 @@ body {
     margin: 20px auto;
     margin-bottom: 75px;
 }
+
+.category-button {
+    height: 150px;
+    background-size: cover;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+
+.category-button span {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
