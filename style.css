@@ -111,3 +111,51 @@ body {
 .category-button.gradient-overlay:hover::before {
     background: none;
 }
+
+.game-card {
+    background-color: #16202d;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.game-card:hover {
+    background-color: #1e2d3d;
+}
+
+.game-card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.game-card-body {
+    padding: 10px;
+}
+
+.game-card-title {
+    color: #c7d5e0;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+
+.game-card-price {
+    color: #acdbf5;
+    font-size: 13px;
+    margin: 0 0 10px 0;
+}
+
+.btn-buy {
+    background-color: #4c6b22;
+    color: #a4d007;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100%;
+}
+
+.btn-buy:hover {
+    background-color: #5c7a32;
+}
