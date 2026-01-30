@@ -12,10 +12,10 @@ body {
     font-weight: normal;
     font-size: 14px;
 }
+
 .bg-primary {
     background-color: #001f3f !important;
 }
-
 
 .navbar-brand {
     display: flex;
@@ -60,22 +60,26 @@ body {
     color: #001f3f;
 }
 
-.italic-text {
-    font-style: italic;
-}
-
 .container {
     max-width: 800px;
     margin: 20px auto;
     margin-bottom: 75px;
 }
 
+.section-title {
+    color: white;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
 .category-button {
     height: 150px;
     background-size: cover;
+    background-position: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px;
+    border: none;
 }
 
 .category-button span {
@@ -83,7 +87,6 @@ body {
     padding: 5px;
 }
 
-/* це градієнти кнопок */
 .category-button.gradient-overlay {
     position: relative;
     overflow: hidden;
