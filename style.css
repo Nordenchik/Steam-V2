@@ -27,6 +27,20 @@ body {
     display: none;
 }
 
+.dropdown-menu {
+    background-color: #001f3f;
+    border: none;
+}
+
+.dropdown-item {
+    color: #c7c7c7;
+}
+
+.dropdown-item:hover {
+    background-color: #003366;
+    color: #fff;
+}
+
 .navbar-brand {
     display: flex;
     align-items: center;
