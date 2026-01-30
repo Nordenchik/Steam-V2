@@ -183,3 +183,7 @@ body {
 .btn-buy:hover {
     background-color: #5c7a32;
 }
+
+.dropdown-divider {
+    background-color: #a4a4a4;
+}
