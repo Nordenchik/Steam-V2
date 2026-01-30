@@ -249,3 +249,148 @@ body {
     color: #8f98a0;
     text-align: center;
 }
+
+.library-container {
+    display: flex;
+    height: calc(100vh - 100px);
+    background-color: #1b2838;
+}
+
+.library-sidebar {
+    width: 300px;
+    background-color: #191f26;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 1px solid #000;
+}
+
+.sidebar-search {
+    margin-bottom: 10px;
+}
+
+.sidebar-input {
+    background-color: #242c36;
+    border: none;
+    color: #c7d5e0;
+}
+
+.sidebar-input:focus {
+    background-color: #313d4b;
+    color: white;
+    box-shadow: none;
+}
+
+.game-list-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #8c929a;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.game-list-item:hover {
+    background-color: #2e353f;
+    color: white;
+}
+
+.game-list-item.active {
+    background-color: #3d4450;
+    color: white;
+}
+
+.game-icon-small {
+    width: 24px;
+    height: 12px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.library-content {
+    flex: 1;
+    background-color: #1b2838;
+    position: relative;
+    overflow-y: auto;
+}
+
+.game-banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+}
+
+.game-details-container {
+    padding: 20px 40px;
+    margin-top: -60px;
+    position: relative;
+    z-index: 2;
+}
+
+.library-game-title {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.play-bar {
+    background-color: rgba(62, 70, 82, 0.6);
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.btn-play {
+    background-color: #4c6b22;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-play:hover {
+    background-color: #5c7a32;
+    color: white;
+}
+
+.game-info-text {
+    color: #fff;
+    margin-left: 20px;
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+    color: #8f98a0;
+    font-size: 12px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    color: #c7d5e0;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.empty-library-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #66c0f4;
+}

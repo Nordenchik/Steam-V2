@@ -67,10 +67,21 @@
         </nav>
     </header>
 
-    <div class="container">
-        <h6 class="section-title">ВАША БІБЛІОТЕКА</h6>
-        <div id="library-container" class="row">
-            <!-- Ігри будуть додані тут через JavaScript -->
+    <div class="library-container">
+        <div class="library-sidebar">
+            <div class="sidebar-search">
+                <input type="text" placeholder="Пошук" class="form-control sidebar-input">
+            </div>
+            <div id="library-list" class="game-list">
+                <!-- Список ігор -->
+            </div>
+        </div>
+
+        <div class="library-content" id="library-details">
+            <!-- Деталі гри -->
+            <div class="empty-library-message">
+                <h3>Виберіть гру зі списку</h3>
+            </div>
         </div>
     </div>
 
