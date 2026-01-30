@@ -62,6 +62,9 @@
                             </ul>
                         </li>
                     </ul>
+                    <button class="btn-cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        🛒 Корзина (<span id="cart-count">0</span>)
+                    </button>
                 </div>
             </div>
         </nav>
@@ -143,7 +146,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Dota 2</h5>
                         <p class="game-card-price">Безкоштовно</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Dota 2', 0)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -153,7 +156,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">CS2</h5>
                         <p class="game-card-price">Безкоштовно</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('CS2', 0)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -163,7 +166,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Team Fortress 2</h5>
                         <p class="game-card-price">Безкоштовно</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Team Fortress 2', 0)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -179,7 +182,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Rust</h5>
                         <p class="game-card-price">599 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Rust', 599)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -189,7 +192,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">DayZ</h5>
                         <p class="game-card-price">799 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('DayZ', 799)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -199,7 +202,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">The Forest</h5>
                         <p class="game-card-price">399 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('The Forest', 399)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -215,7 +218,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">GTA V</h5>
                         <p class="game-card-price">499 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('GTA V', 499)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -225,7 +228,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Red Dead Redemption 2</h5>
                         <p class="game-card-price">999 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Red Dead Redemption 2', 999)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -235,7 +238,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Elden Ring</h5>
                         <p class="game-card-price">1199 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Elden Ring', 1199)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -251,7 +254,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Portal 2</h5>
                         <p class="game-card-price">199 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Portal 2', 199)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -261,7 +264,7 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">The Witness</h5>
                         <p class="game-card-price">299 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('The Witness', 299)">Додати</button>
                     </div>
                 </div>
             </div>
@@ -271,8 +274,45 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Baba Is You</h5>
                         <p class="game-card-price">249 ₴</p>
-                        <button class="btn-buy">Купити</button>
+                        <button class="btn-buy" onclick="addToCart('Baba Is You', 249)">Додати</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content cart-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">🛒 Корзина</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items"></div>
+                    <p id="cart-empty">Корзина порожня</p>
+                </div>
+                <div class="modal-footer">
+                    <p class="cart-total">Всього: <span id="cart-total">0</span> ₴</p>
+                    <button class="btn-buy" onclick="checkout()">Оформити замовлення</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content cart-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">✅ Замовлення успішне!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Дякуємо за Замовлення!</p>
+                    <p>Ігри з'являться у вашій Бібліотеці.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-buy" data-bs-dismiss="modal">Чудово!</button>
                 </div>
             </div>
         </div>
