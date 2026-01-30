@@ -6,15 +6,25 @@ body {
 }
 
 .menu {
-    background-position: center top;
-    min-width: 940px;
-    font-family: "Motiva Sans", sans-serif;
-    font-weight: normal;
-    font-size: 14px;
+    background-color: #001f3f;
+}
+
+.menu .container-fluid {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .bg-primary {
     background-color: #001f3f !important;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
 
 .navbar-brand {
