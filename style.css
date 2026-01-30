@@ -356,6 +356,7 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-right: 20px;
 }
 
 .btn-play:hover {
@@ -371,7 +372,6 @@ body {
 .game-stats {
     display: flex;
     gap: 30px;
-    margin-top: 10px;
     color: #8f98a0;
     font-size: 12px;
 }
@@ -393,4 +393,8 @@ body {
     align-items: center;
     height: 100%;
     color: #66c0f4;
+}
+
+.library-games-title {
+    color: #bdf4ff;
 }
