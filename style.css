@@ -474,6 +474,141 @@ body {
     gap: 8px;
 }
 
-.footer-btn:hover {
-    color: #ffffff;
+/* Downloads Page Styles */
+.downloads-container {
+    max-width: 940px;
+    margin: 20px auto;
+    color: #fff;
+    padding-bottom: 80px;
+    /* Space for footer */
+}
+
+.downloads-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3d4450;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.downloads-title {
+    font-size: 26px;
+    color: #fff;
+    font-weight: 300;
+}
+
+.download-item {
+    background-color: #1b2838;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.download-icon {
+    width: 184px;
+    height: 69px;
+    object-fit: cover;
+}
+
+.download-info {
+    flex: 1;
+}
+
+.download-name {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.download-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #8f98a0;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.progress-container {
+    background-color: #101822;
+    height: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.progress-bar-steam {
+    background-color: #1a9fff;
+    height: 100%;
+    width: 45%;
+    position: relative;
+    box-shadow: 0 0 10px #1a9fff;
+}
+
+.download-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background-color: #16202d;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.stat-box small {
+    display: block;
+    color: #565f68;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.stat-box span {
+    font-size: 18px;
+    color: #c7d5e0;
+}
+
+.network-graph {
+    height: 100px;
+    background-color: #000;
+    border: 1px solid #101822;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.graph-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(26, 159, 255, 0.2), transparent);
+    border-top: 2px solid #1a9fff;
+}
+
+/* Queue Section */
+.queue-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+    color: #8f98a0;
+}
+
+.queue-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.queue-icon {
+    width: 120px;
+    height: 45px;
+    object-fit: cover;
+    margin-right: 15px;
+    opacity: 0.7;
+}
+
+.queue-controls {
+    margin-left: auto;
+    font-size: 20px;
+    cursor: pointer;
 }
