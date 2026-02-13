@@ -617,3 +617,226 @@ body {
     font-size: 20px;
     cursor: pointer;
 }
+
+/* Profile Page Styles */
+.profile-container {
+    background-color: #1b2838;
+    color: #c7d5e0;
+    flex: 1;
+}
+
+.profile-header-bg {
+    background: radial-gradient(circle at top center, #2a475e 0%, #1b2838 80%);
+    padding: 30px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+}
+
+.profile-header-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.player-avatar img {
+    width: 164px;
+    height: 164px;
+    border: 2px solid #57cbde;
+    /* Online color */
+    padding: 2px;
+    background-color: #000;
+    border-radius: 4px;
+    /* Slight rounded corners but mostly square like Steam */
+}
+
+.player-info {
+    flex: 1;
+}
+
+.player-name {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.player-location {
+    font-size: 14px;
+    color: #8f98a0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.player-summary {
+    font-size: 14px;
+    color: #c7d5e0;
+    line-height: 1.5;
+}
+
+.player-level-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.level-badge {
+    border: 2px solid #4c6b22;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b2838;
+}
+
+.level-value {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-profile-body {
+    padding-bottom: 50px;
+}
+
+.profile-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.profile-section-title {
+    font-size: 18px;
+    color: #54a5d4;
+    /* Steam link blue */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3d4450;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.showcase-content {
+    background-color: #000;
+    padding: 10px;
+    border: 1px solid #2a475e;
+    border-radius: 3px;
+}
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.activity-game-icon {
+    width: 100px;
+    /* Wider for capsule images */
+    height: 48px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 2px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-game-name {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.activity-stats {
+    font-size: 12px;
+    color: #8f98a0;
+}
+
+.activity-total {
+    font-size: 14px;
+    color: #c7d5e0;
+    text-align: right;
+    min-width: 120px;
+}
+
+.profile-sidebar-section {
+    margin-bottom: 25px;
+}
+
+.online-status {
+    font-size: 22px;
+    color: #57cbde;
+    /* Online blue */
+    padding: 10px;
+    border: 1px solid rgba(87, 203, 222, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.status-detail {
+    display: block;
+    font-size: 13px;
+    color: #89c568;
+    /* In-game green */
+    margin-top: 5px;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.sidebar-title .count {
+    color: #8f98a0;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.badges-row,
+.friends-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.badge-slot,
+.friend-slot {
+    background-color: #222b35;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
+
+.groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.group-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8f98a0;
+    font-size: 14px;
+}
+
+.group-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
