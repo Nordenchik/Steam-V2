@@ -139,13 +139,61 @@
                             </div>
                         </div>
                     </div>
+                    <div class="profile-section">
+                        <h3 class="profile-section-title">Коментарі</h3>
+                        <div class="comment-thread">
+                            <div id="comments-list">
+                                <div class="comment">
+                                    <div class="comment-avatar">
+                                        <img src="images/tf2.png" alt="User">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <a href="#" class="comment-author">Destroyer2000</a>
+                                            <span class="comment-date">2 години тому</span>
+                                        </div>
+                                        <div class="comment-text">
+                                            +rep крутий тіммейт, затащили катку в CS2!
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="comment">
+                                    <div class="comment-avatar">
+                                        <img src="images/portal2.jpg" alt="User">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <a href="#" class="comment-author">GLaDOS_Fan</a>
+                                            <span class="comment-date">Вчора</span>
+                                        </div>
+                                        <div class="comment-text">
+                                            Давай сьогодні ввечері в Rust?
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-input-area">
+                                <div class="comment-avatar">
+                                    <img src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg"
+                                        alt="You">
+                                </div>
+                                <textarea id="new-comment-text" class="comment-textarea"
+                                    placeholder="Залишити коментар..."></textarea>
+                                <button onclick="postComment()" class="btn btn-primary btn-sm mt-2"
+                                    style="background-color: #4c6b22; border: none;">Надіслати</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="profile-sidebar-section">
-                        <div class="online-status online">
-                            Зараз в мережі
-                            <span class="status-detail">В грі: Dota 2</span>
+                        <div class="online-status online" id="status-badge" onclick="toggleStatus()"
+                            style="cursor: pointer;" title="Натисніть, щоб змінити статус">
+                            <span id="status-text">Зараз в мережі</span>
+                            <span class="status-detail" id="status-detail">В грі: Dota 2</span>
                         </div>
                     </div>
 

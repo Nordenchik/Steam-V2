@@ -1,143 +1,144 @@
-// Скрол по категоріям
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-}
+// Cart Functionality
+let cart = [];
+let total = 0;
 
-// Корзина
-var cart = [];
+function addToCart(gameName, price) {
+    cart.push({ name: gameName, price: price });
+    total += price;
+    updateCartUI();
 
-function addToCart(name, price) {
-    cart.push({ name: name, price: price });
-    updateCart();
+    // Show cart modal
+    const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+    cartModal.show();
 }
 
 function removeFromCart(index) {
+    const item = cart[index];
+    total -= item.price;
     cart.splice(index, 1);
-    updateCart();
+    updateCartUI();
 }
 
-function updateCart() {
-    var cartItems = document.getElementById('cart-items');
-    var cartCount = document.getElementById('cart-count');
-    var cartTotal = document.getElementById('cart-total');
-    var cartEmpty = document.getElementById('cart-empty');
+function updateCartUI() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    const cartCountElement = document.getElementById('cart-count');
+    const cartEmptyElement = document.getElementById('cart-empty');
 
-    cartCount.textContent = cart.length;
+    cartItemsElement.innerHTML = '';
 
     if (cart.length === 0) {
-        cartEmpty.style.display = 'block';
-        cartItems.innerHTML = '';
-        cartTotal.textContent = '0';
+        cartEmptyElement.style.display = 'block';
     } else {
-        cartEmpty.style.display = 'none';
-        var html = '';
-        var total = 0;
-
-        for (var i = 0; i < cart.length; i++) {
-            html += '<div class="cart-item">';
-            html += '<span>' + cart[i].name + '</span>';
-            html += '<span>' + cart[i].price + ' ₴</span>';
-            html += '<button class="btn-remove" onclick="removeFromCart(' + i + ')">✕</button>';
-            html += '</div>';
-            total += cart[i].price;
-        }
-
-        cartItems.innerHTML = html;
-        cartTotal.textContent = total;
+        cartEmptyElement.style.display = 'none';
+        cart.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'cart-item';
+            itemElement.innerHTML = `
+                <span>${item.name}</span>
+                <div>
+                    <span>${item.price}₴</span>
+                    <button class="btn-remove ms-2" onclick="removeFromCart(${index})">✕</button>
+                </div>
+            `;
+            cartItemsElement.appendChild(itemElement);
+        });
     }
+
+    cartTotalElement.innerText = total;
+    cartCountElement.innerText = cart.length;
 }
 
 function checkout() {
-    if (cart.length > 0) {
-        var library = JSON.parse(localStorage.getItem('steam_library')) || [];
+    if (cart.length === 0) return;
 
-        for (var i = 0; i < cart.length; i++) {
-            library.push(cart[i]);
-        }
+    // Clear cart
+    cart = [];
+    total = 0;
+    updateCartUI();
 
-        localStorage.setItem('steam_library', JSON.stringify(library));
+    // Hide cart modal
+    const cartModalEl = document.getElementById('cartModal');
+    const cartModal = bootstrap.Modal.getInstance(cartModalEl);
+    cartModal.hide();
 
-        var cartModalEl = document.getElementById('cartModal');
-        var cartModal = bootstrap.Modal.getInstance(cartModalEl);
-        cartModal.hide();
+    // Show success modal
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    successModal.show();
+}
 
-        cart = [];
-        updateCart();
+// Navigation scroll
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
-        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
+// Profile Status Toggle
+function toggleStatus() {
+    const statusBadge = document.getElementById('status-badge');
+    const statusText = document.getElementById('status-text');
+    const statusDetail = document.getElementById('status-detail');
+
+    if (statusBadge.classList.contains('online')) {
+        // Switch to Away
+        statusBadge.classList.remove('online');
+        statusBadge.classList.add('away');
+        statusText.innerText = '💤 Відійшов';
+        statusDetail.style.display = 'none';
+    } else if (statusBadge.classList.contains('away')) {
+        // Switch to Busy
+        statusBadge.classList.remove('away');
+        statusBadge.classList.add('busy');
+        statusText.innerText = '⛔ Не турбувати';
+        statusDetail.style.display = 'none';
+        statusDetail.innerText = '';
     } else {
-        alert('Корзина порожня!');
+        // Switch back to Online
+        statusBadge.classList.remove('busy');
+        statusBadge.classList.add('online');
+        statusText.innerText = 'Зараз в мережі';
+        statusDetail.style.display = 'block';
+        statusDetail.innerText = 'В грі: Dota 2';
     }
 }
 
-function loadLibrary() {
-    var library = JSON.parse(localStorage.getItem('steam_library')) || [];
-    var listContainer = document.getElementById('library-list');
+// Post Comment Function
+function postComment() {
+    const input = document.getElementById('new-comment-text');
+    const text = input.value.trim();
 
-    if (!listContainer) return;
+    if (text === "") return;
 
-    listContainer.innerHTML = '';
+    const commentsList = document.getElementById('comments-list');
 
-    if (library.length === 0) {
-        listContainer.innerHTML = '<div style="padding: 10px; color: #8f98a0;">Немає ігор</div>';
-        return;
-    }
+    // Create new comment element
+    const newComment = document.createElement('div');
+    newComment.className = 'comment';
 
-    for (var i = 0; i < library.length; i++) {
-        var item = document.createElement('div');
-        item.className = 'game-list-item';
-        item.innerHTML = '<img src="' + getGameImage(library[i].name) + '" class="game-icon-small">' + library[i].name;
-        item.onclick = (function (index) {
-            return function () {
-                selectGame(index);
-            };
-        })(i);
-        listContainer.appendChild(item);
-    }
+    // Get headers for current date/time (simplified)
+    const now = new Date();
+    const timeString = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
 
-    if (library.length > 0) {
-        selectGame(0);
-    }
-}
+    newComment.innerHTML = `
+        <div class="comment-avatar">
+            <img src="https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="You">
+        </div>
+        <div class="comment-content">
+            <div class="comment-header">
+                <a href="#" class="comment-author">GamerUA</a>
+                <span class="comment-date">Сьогодні, ${timeString}</span>
+            </div>
+            <div class="comment-text">
+                ${text.replace(/\n/g, '<br>')}
+            </div>
+        </div>
+    `;
 
-function selectGame(index) {
-    var library = JSON.parse(localStorage.getItem('steam_library')) || [];
-    var game = library[index];
-    var detailsContainer = document.getElementById('library-details');
-    var listItems = document.getElementsByClassName('game-list-item');
+    // Append to list
+    commentsList.appendChild(newComment);
 
-    for (var i = 0; i < listItems.length; i++) {
-        listItems[i].classList.remove('active');
-    }
-    if (listItems[index]) {
-        listItems[index].classList.add('active');
-    }
-
-    var html = '';
-    html += '<img src="' + getGameImage(game.name) + '" class="game-banner">';
-    html += '<div class="game-details-container">';
-    html += '<h2 class="library-game-title">' + game.name + '</h2>';
-    html += '<div class="play-bar">';
-    html += '<button class="btn-play">▶ Грати</button>';
-    html += '<div class="game-stats">';
-    html += '<div class="stat-item"><span>ОСТАННІЙ ЗАПУСК</span><span class="stat-value">Ніколи</span></div>';
-    html += '<div class="stat-item"><span>ЧАС У ГРІ</span><span class="stat-value">0 год.</span></div>';
-    html += '</div>'; // game-stats
-    html += '</div>'; // play-bar
-    html += '<div style="margin-top: 20px; color: #c7d5e0;">';
-    html += '<p>Ви придбали цю гру і вона тепер у вашій бібліотеці Steam.</p>';
-    html += '</div>';
-    html += '</div>'; // game-details-container
-
-    detailsContainer.innerHTML = html;
-}
-
-function getGameImage(name) {
-    if (name === 'Dota 2') return 'images/dota2.jpg';
-    if (name === 'Counter Strike 2' || name === 'CS2') return 'images/cs2.jpeg';
-    if (name === 'Team Fortress 2') return 'images/tf2.png';
-    if (name === 'Rust') return 'images/rust.jpg';
-    if (name === 'S.T.A.L.K.E.R. 2') return 'https://via.placeholder.com/300x150'; // Placeholder logic if user didn't provide image
-    return 'https://via.placeholder.com/300x150';
+    // Clear input
+    input.value = '';
 }
