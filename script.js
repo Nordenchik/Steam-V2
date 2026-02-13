@@ -52,6 +52,18 @@ function updateCartUI() {
 function checkout() {
     if (cart.length === 0) return;
 
+    // Save to library (localStorage)
+    const existingLibrary = JSON.parse(localStorage.getItem('steam_library')) || [];
+
+    cart.forEach(item => {
+        // Avoid duplicates
+        if (!existingLibrary.some(game => game.name === item.name)) {
+            existingLibrary.push(item);
+        }
+    });
+
+    localStorage.setItem('steam_library', JSON.stringify(existingLibrary));
+
     // Clear cart
     cart = [];
     total = 0;
@@ -65,6 +77,47 @@ function checkout() {
     // Show success modal
     const successModal = new bootstrap.Modal(document.getElementById('successModal'));
     successModal.show();
+}
+
+// Load Library Function
+function loadLibrary() {
+    const libraryList = document.getElementById('library-list');
+    if (!libraryList) return;
+
+    const library = JSON.parse(localStorage.getItem('steam_library')) || [];
+
+    libraryList.innerHTML = '';
+
+    if (library.length === 0) {
+        libraryList.innerHTML = '<div style="padding: 10px; color: #8f98a0;">Бібліотека порожня</div>';
+        return;
+    }
+
+    library.forEach(game => {
+        const gameItem = document.createElement('div');
+        gameItem.className = 'game-list-item';
+        // Simple icon path logic based on game name (demo purposes)
+        let iconPath = 'images/logo_steam.png'; // fallback
+        if (game.name.includes('Dota')) iconPath = 'images/dota2.jpg';
+        else if (game.name.includes('CS')) iconPath = 'images/cs2.jpeg';
+        else if (game.name.includes('Rust')) iconPath = 'images/rust.jpg';
+        else if (game.name.includes('DayZ')) iconPath = 'images/dayz.png';
+        else if (game.name.includes('Forest')) iconPath = 'images/the_forest.jpg';
+        else if (game.name.includes('S.T.A.L.K.E.R.')) iconPath = 'images/stalker2.jpg';
+        else if (game.name.includes('GTA')) iconPath = 'images/gtav_enhanced.png';
+        else if (game.name.includes('Red Dead')) iconPath = 'images/rdd2.jpg';
+        else if (game.name.includes('Elden')) iconPath = 'images/elden_ring.jpg';
+        else if (game.name.includes('Portal')) iconPath = 'images/portal2.jpg';
+        else if (game.name.includes('Witness')) iconPath = 'images/the_witness.png';
+        else if (game.name.includes('Baba')) iconPath = 'images/baba_is_you.jpg';
+        else if (game.name.includes('Team')) iconPath = 'images/tf2.png';
+
+        gameItem.innerHTML = `
+            <img src="${iconPath}" class="game-icon-small">
+            ${game.name}
+        `;
+        libraryList.appendChild(gameItem);
+    });
 }
 
 // Navigation scroll
