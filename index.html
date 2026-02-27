@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0FKWLZ487"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N0FKWLZ487');
+    </script>
 </head>
 
 <body>
@@ -74,36 +83,38 @@
 
     <div class="container">
         <h6 class="section-title">ВІДІБРАНЕ І РЕКОМЕНДОВАНЕ</h6>
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+        <div class="animated-card">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/1st_image.jpg" class="d-block w-100" alt="Слайд 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/2nd_image.jpg" class="d-block w-100" alt="Слайд 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/3rd_image.jpg" class="d-block w-100" alt="Слайд 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Попередній</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Наступний</span>
+                </button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/1st_image.jpg" class="d-block w-100" alt="Слайд 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/2nd_image.jpg" class="d-block w-100" alt="Слайд 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/3rd_image.jpg" class="d-block w-100" alt="Слайд 3">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Попередній</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Наступний</span>
-            </button>
         </div>
     </div>
 
@@ -141,7 +152,7 @@
     <div class="container" id="freetoplay">
         <h6 class="section-title">ВІЛЬНИЙ ДОСТУП</h6>
         <div class="row g-4">
-            <div class="col-md-4">
+            <div class="col-md-4 animated-card">
                 <div class="game-card">
                     <img src="images/dota2.jpg" class="game-card-img" alt="Dota 2">
                     <div class="game-card-body">
@@ -275,7 +286,8 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Five Nights at Freddy's: Security Breach</h5>
                         <p class="game-card-price">479₴</p>
-                        <button class="btn-buy" onclick="addToCart('Five Nights at Freddy’s: Security Breach', 479)">Купити</button>
+                        <button class="btn-buy"
+                            onclick="addToCart('Five Nights at Freddy’s: Security Breach', 479)">Купити</button>
                     </div>
                 </div>
             </div>
@@ -291,7 +303,8 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">S.T.A.L.K.E.R. 2: Heart of Chornobyl</h5>
                         <p class="game-card-price">1399₴</p>
-                        <button class="btn-buy" onclick="addToCart('S.T.A.L.K.E.R. 2: Heart of Chornobyl', 1399)">Купити</button>
+                        <button class="btn-buy"
+                            onclick="addToCart('S.T.A.L.K.E.R. 2: Heart of Chornobyl', 1399)">Купити</button>
                     </div>
                 </div>
             </div>
@@ -367,7 +380,8 @@
                     <div class="game-card-body">
                         <h5 class="game-card-title">Please Don't Touch Anything 3D</h5>
                         <p class="game-card-price">225₴</p>
-                        <button class="btn-buy" onclick="addToCart('Please Don’t Touch Anything 3D', 225)">Купити</button>
+                        <button class="btn-buy"
+                            onclick="addToCart('Please Don’t Touch Anything 3D', 225)">Купити</button>
                     </div>
                 </div>
             </div>

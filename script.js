@@ -195,3 +195,12 @@ function postComment() {
     // Clear input
     input.value = '';
 }
+
+let block = document.querySelector('.animated-card')
+document.addEventListener('mousemove', function(e) {
+    let dx = e.pageX - window.innerWidth / 2
+    let dy = e.pageY - window.innerHeight / 2
+    let angleX = 100 * dx / window.innerWidth / 2
+    let angleY = 100 * dy / window.innerHeight / 2
+    block.style.transform = `rotateX(${-angleY}deg) rotateY(${angleX}deg)`
+})
